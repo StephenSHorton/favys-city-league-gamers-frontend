@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 
 const SignUp = props => {
   const [name, setName] = React.useState("");
@@ -7,27 +6,57 @@ const SignUp = props => {
   const [confirmPass, setConfirmPass] = React.useState("");
   const [error, setError] = React.useState(null);
 
+  const createCORSRequest = (method, url) => {
+    var xhr = new XMLHttpRequest();
+    if ("withCredentials" in xhr) {
+      // XHR for Chrome/Firefox/Opera/Safari.
+      xhr.open(method, url, true);
+    } else {
+      // CORS not supported.
+      xhr = null;
+    }
+    return xhr;
+  };
+
   const createUser = () => {
-    console.log("CREATE USER RAN");
+    var url = "https://favys-city-league-gamers.herokuapp.com/user";
+    var xhr = createCORSRequest("POST", url);
+    if (!xhr) {
+      console.log("CORS not supported");
+      alert(
+        "There is a problem with our servers right now, please try again another time. We're sorry for the inconvenience"
+      );
+      return;
+    }
+    xhr.setRequestHeader("Content-type", "application/json");
+    // Response handlers.
+    xhr.onreadystatechange = function() {
+      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+        console.log(xhr.response);
+      }
+    };
+
+    xhr.onerror = function() {
+      alert("Woops, there was an error making the request.");
+    };
+    xhr.send(
+      JSON.stringify({
+        username: name,
+        password: pass,
+        clan: "",
+        rank: "",
+        status: ""
+      })
+    );
+  };
+
+  const checkFields = () => {
     const regex = /^[A-Za-z0-9_]+$/;
     if (!regex.test(pass)) {
       if (pass === confirmPass) {
         if (pass.length > 7) {
-          axios
-            .post("https://favys-city-league-gamers.herokuapp.com/user", {
-              username: name,
-              password: pass,
-              clan: "",
-              rank: "",
-              status: ""
-            })
-            .then(response => {
-              props.history.push("/login");
-              setError(null);
-            })
-            .catch(error => {
-              console.log("sign up error: ", error);
-            });
+          createUser();
+          props.history.push("/login");
         } else {
           setError(
             <div className="error-message">
@@ -48,24 +77,38 @@ const SignUp = props => {
   };
 
   const checkUsername = () => {
-    console.log("CHECK USERNAME RAN");
-    axios
-      .post("https://favys-city-league-gamers.herokuapp.com/checkusername", {
+    console.log("CHECKING USERNAME: ", name);
+
+    var url = "https://favys-city-league-gamers.herokuapp.com/usernamecheck";
+    var xhr = createCORSRequest("POST", url);
+    if (!xhr) {
+      console.log("CORS not supported");
+      alert(
+        "There is a problem with our servers right now, please try again another time. We're sorry for the inconvenience"
+      );
+      return;
+    }
+    xhr.setRequestHeader("Content-type", "application/json");
+    // Response handlers.
+    xhr.onreadystatechange = function() {
+      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+        if (xhr.response === "USERNAME IS NOT TAKEN") {
+          checkFields();
+        } else {
+          console.log(xhr.response);
+          setError(<div className="error-message">Username is taken.</div>);
+        }
+      }
+    };
+
+    xhr.onerror = function() {
+      alert("Woops, there was an error making the request.");
+    };
+    xhr.send(
+      JSON.stringify({
         username: name
       })
-      .then(response => {
-        if (response.data === "USERNAME IS NOT TAKEN") {
-          createUser();
-          setError(null);
-        } else {
-          setError(
-            <div className="error-message">That username is taken.</div>
-          );
-        }
-      })
-      .catch(error => {
-        console.log("sign up error: ", error);
-      });
+    );
   };
 
   const handleSubmit = event => {

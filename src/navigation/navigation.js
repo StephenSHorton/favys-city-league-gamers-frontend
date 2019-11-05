@@ -13,6 +13,9 @@ const Navigation = props => {
       </div>
       <div className="navigation-links-container">
         <div className="navigation-link">
+          <Link to="/test">Test</Link>
+        </div>
+        <div className="navigation-link">
           <Link to="/">Home</Link>
         </div>
         <div className="navigation-link">

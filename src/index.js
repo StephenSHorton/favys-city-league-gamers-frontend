@@ -13,6 +13,8 @@ import SignUp from "./pages/sign-up";
 import Search from "./pages/search";
 import Profile from "./pages/profile";
 
+import Test from "./pages/test";
+
 import Game from "./pages/game-display";
 
 // This is going to be a brief note on what the page will be for.
@@ -48,6 +50,11 @@ function App() {
           />
 
           <Switch>
+            <Route
+              exact
+              path="/test"
+              render={props => <Test {...props} loggedIn={loggedIn} />}
+            />
             <Route
               exact
               path="/"
