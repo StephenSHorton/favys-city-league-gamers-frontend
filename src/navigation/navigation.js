@@ -12,9 +12,9 @@ const Navigation = props => {
         <Link to="/">Favy's City League Gamers</Link>
       </div>
       <div className="navigation-links-container">
-        <div className="navigation-link">
+        {/* <div className="navigation-link">
           <Link to="/test">Test</Link>
-        </div>
+        </div> */}
         <div className="navigation-link">
           <Link to="/">Home</Link>
         </div>
