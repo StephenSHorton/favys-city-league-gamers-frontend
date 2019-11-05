@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { directiveLiteral } from "@babel/types";
 
 const Search = () => {
   //probably set links to be plural for username across games unless search page for each game

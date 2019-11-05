@@ -35,3 +35,24 @@ body {
     border-color: rgba(128, 128, 128, 0.103);
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .link {
+    font-size: 1rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    a {
+      border: 20px solid transparent;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      color: white;
+      transition: 0.2s ease-in-out;
+    }
+    a:hover {
+      color: grey;
+      background-color: rgba(128, 128, 128, 0.103);
+      border-color: rgba(128, 128, 128, 0.103);
+    }
+  }
+}

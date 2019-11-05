@@ -47,3 +47,61 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .login {
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      .login-container {
+        @include fadePinkwBorder;
+        border-radius: 20px;
+        margin-top: 50px;
+        padding: 100px;
+        .error-message {
+          font-size: 1.5rem;
+        }
+        p {
+          font-size: 6rem;
+          font-weight: 600;
+        }
+        form {
+          display: grid;
+          grid-template-rows: 65px 65px 1fr;
+          input {
+            margin-bottom: 15px;
+          }
+          button {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: rgb(90, 68, 235);
+            padding: 10px;
+          }
+        }
+      }
+    }
+    .sign-up {
+      margin-top: 10px;
+      a {
+        @include fadePinkwoBorderDark;
+        font-weight: 600;
+        font-size: 1.5rem;
+        padding: 10px;
+
+        text-decoration: none;
+        color: white;
+      }
+    }
+    .forgot-password {
+      margin-top: 10px;
+      a {
+        @include fadePinkwoBorderDark;
+        font-weight: 600;
+        font-size: 1.5rem;
+        padding: 10px;
+        text-decoration: none;
+        color: white;
+      }
+    }
+  }
+}

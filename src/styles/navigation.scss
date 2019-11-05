@@ -60,3 +60,31 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .navigation-container {
+    padding-left: 0;
+
+    .logo {
+      border-right: 2px solid rgba(43, 36, 87, 0.664);
+    }
+
+    .logo {
+      a {
+        font-size: 1.5rem;
+      }
+    }
+
+    .navigation-links-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      .navigation-link {
+        border: 0px;
+      }
+      .navigation-link a {
+        padding: 10px;
+      }
+    }
+  }
+}

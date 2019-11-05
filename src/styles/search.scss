@@ -31,3 +31,48 @@
   //   }
   // }
 }
+
+@media only screen and (max-width: 600px) {
+  .search-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-bottom: 35px;
+    // .space-center {
+    //   .form {
+    //     .input {
+    //     }
+    //   }
+    // }
+    .profile-links-container {
+      @include fadePinkwBorder;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding-bottom: 60px;
+      p {
+        font-size: 1.5rem;
+      }
+      a {
+        border: 20px solid transparent;
+        background-color: rgba(68, 68, 68, 0.466);
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        color: white;
+        transition: 0.2s ease-in-out;
+      }
+      a:hover {
+        color: grey;
+        background-color: rgba(128, 128, 128, 0.103);
+        border-color: rgba(128, 128, 128, 0.103);
+      }
+      .input {
+        padding: 50px;
+      }
+    }
+    // .space-center {
+    //   .form {
+
+    //   }
+    // }
+  }
+}
