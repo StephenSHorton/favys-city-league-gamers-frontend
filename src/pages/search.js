@@ -9,10 +9,6 @@ const Search = () => {
   const [searchReady, setSearchReady] = React.useState(false);
   const [error, setError] = React.useState(null);
 
-  // React.useEffect(() => {
-  //   console.log("REACT DID UPDATE");
-  // }, [data, searchTerm]);
-
   const handleChange = event => {
     setSearchReady(false);
     setSearchTerm(event.target.value);
