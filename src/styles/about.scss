@@ -1,0 +1,23 @@
+.about-container {
+  margin-top: 45px;
+  .center {
+    display: grid;
+    justify-content: center;
+    .content-container {
+      @include fadePinkwBorder;
+      padding: 20px 100px;
+      border-radius: 5px;
+      display: grid;
+      grid-template-rows: 0.2fr 1fr;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 600;
+      .content {
+        text-align: left;
+        li {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

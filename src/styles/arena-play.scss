@@ -1,0 +1,14 @@
+.arena-play-container {
+  justify-content: center;
+  font-size: 3rem;
+  .links-container {
+    @include fadePinkwBorder;
+    padding: 2px;
+    .link {
+      justify-content: center;
+      a {
+        font-size: 3rem;
+      }
+    }
+  }
+}

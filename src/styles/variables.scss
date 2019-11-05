@@ -1,0 +1,8 @@
+@mixin fadePinkwBorder {
+  background-color: rgba(230, 49, 230, 0.2);
+  border: 4px solid slateblue;
+}
+
+@mixin fadePinkwoBorderDark {
+  background-color: rgba(128, 46, 128, 0.849);
+}
