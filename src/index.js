@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Cookie from "js-cookie";
+import axios from "axios";
 
 import "./styles/main.scss";
 
@@ -22,8 +24,27 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState(null);
 
   React.useEffect(() => {}, [loggedIn]);
+
+  const handleCookies = () => {
+    axios
+      .post("https://favys-city-league-gamers.herokuapp.com/login", {
+        username: Cookie.get("USERNAME"),
+        password: Cookie.get("PASSWORD")
+      })
+      .then(response => {
+        if (response.data === "SUCCESSFUL LOGIN") {
+          setLoggedIn(true);
+          setCurrentUser(Cookie.get("USERNAME"));
+        }
+      })
+      .catch(error => {
+        console.log("Login error: ", error);
+      });
+  };
+
   return (
     <div className="App">
+      {Cookie.get("PASSWORD") ? handleCookies() : null}
       <Router>
         <div>
           <Navigation

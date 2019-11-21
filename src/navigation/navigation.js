@@ -1,11 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Cookie from "js-cookie";
 
 // TODO
 // 1. get navlinks instead of links for "current page" styling
 
 const Navigation = props => {
   React.useEffect(() => {}, [props.loggedIn]);
+
+  const handleLogout = () => {
+    console.log("LOGOUT PRESSED");
+    Cookie.remove("USERNAME");
+    Cookie.remove("PASSWORD");
+    props.setLoggedIn(false);
+  };
+
   return (
     <div className="navigation-container">
       <div className="logo">
@@ -29,7 +38,7 @@ const Navigation = props => {
         </div>
         {props.loggedIn ? (
           <div className="navigation-link-logout">
-            <Link to="/login" onClick={() => props.setLoggedIn(false)}>
+            <Link to="/login" onClick={handleLogout}>
               Logout
             </Link>
           </div>
@@ -38,6 +47,9 @@ const Navigation = props => {
             <Link to="/login">Login</Link>
           </div>
         )}
+        {props.loggedIn ? (
+          <div className="user-logged-display">Hello {props.currentUser}!</div>
+        ) : null}
       </div>
     </div>
   );
