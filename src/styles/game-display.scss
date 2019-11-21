@@ -1,3 +1,23 @@
-// .game-display-container {
+.game-display-container {
+  .lol {
+    background-image: url("./backgrounds/lol.jpg");
+  }
+  .fortnite {
+    background-image: url("./backgrounds/fortnite.jpg");
+  }
+  .apex {
+    background-image: url("./backgrounds/apex.jpg");
+  }
+  .cod {
+    background-image: url("./backgrounds/cod.jpg");
+  }
+  .smash {
+    background-image: url("./backgrounds/smash.png");
+  }
 
-// }
+  .tournament-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    height: 825px;
+  }
+}

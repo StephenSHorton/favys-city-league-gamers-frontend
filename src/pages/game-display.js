@@ -1,42 +1,38 @@
 import React from "react";
 
-import Lol from "./games/league-of-legends/lol";
-import Fortnite from "./games/fortnite/fortnite";
-import Apex from "./games/apex-legends/apex";
-import Cod from "./games/call-of-duty/cod";
-import Smash from "./games/super-smash/smash";
+import Tournament from "../components/tournament";
 
 const GameDisplay = props => {
   const displayGame = () => {
     const currentGame = props.match.params.slugGame;
     if (currentGame === "lol") {
       return (
-        <div>
-          <Lol />
+        <div className={props.match.params.slugGame}>
+          <Tournament currentGame={props.match.params.slugGame} />
         </div>
       );
     } else if (currentGame === "fortnite") {
       return (
-        <div>
-          <Fortnite />
+        <div className={props.match.params.slugGame}>
+          <Tournament currentGame={props.match.params.slugGame} />
         </div>
       );
     } else if (currentGame === "apex") {
       return (
-        <div>
-          <Apex />
+        <div className={props.match.params.slugGame}>
+          <Tournament currentGame={props.match.params.slugGame} />
         </div>
       );
     } else if (currentGame === "cod") {
       return (
-        <div>
-          <Cod />
+        <div className={props.match.params.slugGame}>
+          <Tournament currentGame={props.match.params.slugGame} />
         </div>
       );
     } else if (currentGame === "smash") {
       return (
-        <div>
-          <Smash />
+        <div className={props.match.params.slugGame}>
+          <Tournament currentGame={props.match.params.slugGame} />
         </div>
       );
     }
