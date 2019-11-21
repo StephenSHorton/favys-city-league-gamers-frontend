@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Cookie from "js-cookie";
 
 const Login = props => {
   const [name, setName] = React.useState("");
@@ -9,6 +10,8 @@ const Login = props => {
 
   const handleLogout = () => {
     props.setLoggedIn(false);
+    Cookie.remove("USERNAME");
+    Cookie.remove("PASSWORD");
     setError(null);
     setName("");
     setPass("");
@@ -25,6 +28,8 @@ const Login = props => {
       .then(response => {
         if (response.data === "SUCCESSFUL LOGIN") {
           props.setLoggedIn(true);
+          Cookie.set("USERNAME", name, { expires: 3 });
+          Cookie.set("PASSWORD", pass);
           props.history.push("/");
         } else {
           setError(

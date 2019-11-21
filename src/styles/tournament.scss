@@ -1,0 +1,38 @@
+.tournament-container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 2fr 1fr;
+  height: 825px;
+
+  .header {
+    @include fadePinkwBorderDark;
+    margin-bottom: 20px;
+  }
+  .scroll-feature {
+    @include fadePinkwBorderDark;
+    height: 500px;
+  }
+
+  .dialog-wrapper {
+    @include fadePinkwBorderDark;
+    margin-bottom: 200px;
+  }
+
+  // .list-wrapper {
+  //
+  // }
+
+  .link {
+    a {
+      border: 20px solid transparent;
+      background-color: rgba(0, 190, 253, 0.103);
+      border-color: rgba(0, 190, 253, 0.103);
+      color: white;
+    }
+    a:hover {
+      color: rgb(0, 190, 253);
+      background-color: rgba(128, 128, 128, 0.103);
+      border-color: rgba(128, 128, 128, 0.103);
+    }
+  }
+}
