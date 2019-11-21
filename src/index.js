@@ -13,24 +13,7 @@ import SignUp from "./pages/sign-up";
 import Search from "./pages/search";
 import Profile from "./pages/profile";
 
-import Test from "./pages/test";
-
 import Game from "./pages/game-display";
-
-// This is going to be a brief note on what the page will be for.
-
-// 1) why should people visit my site?
-
-// -Create a community of city league gamers
-// -Create profiles to show off your skills
-// -Create teams and Clans for city league tournaments.
-// -Create tournaments for all city league gamers
-// -Publish updates for games
-// -Show games that are coming out soon.
-
-// This site will be tournament driven and have additional things for the players.
-
-// Let me know if you have any questions
 
 //PROBLEMS: Database can be edited by anyone who looks up enpoints in the code
 
@@ -50,11 +33,6 @@ function App() {
           />
 
           <Switch>
-            <Route
-              exact
-              path="/test"
-              render={props => <Test {...props} loggedIn={loggedIn} />}
-            />
             <Route
               exact
               path="/"
