@@ -6,7 +6,9 @@ import Cookie from "js-cookie";
 // 1. get navlinks instead of links for "current page" styling
 
 const Navigation = props => {
-  React.useEffect(() => {}, [props.loggedIn]);
+  React.useEffect(() => {
+    props.setCurrentUser(Cookie.get("USERNAME"));
+  }, [props.loggedIn]);
 
   const handleLogout = () => {
     console.log("LOGOUT PRESSED");
@@ -21,9 +23,12 @@ const Navigation = props => {
         <Link to="/">Favy's City League Gamers</Link>
       </div>
       <div className="navigation-links-container">
-        {/* <div className="navigation-link">
-          <Link to="/test">Test</Link>
-        </div> */}
+        {props.currentUser === "TestUser" ? (
+          <div className="navigation-link-admin">
+            <Link to="/admin">Admin</Link>
+          </div>
+        ) : null}
+
         <div className="navigation-link">
           <Link to="/">Home</Link>
         </div>

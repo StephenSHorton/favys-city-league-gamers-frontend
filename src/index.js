@@ -16,12 +16,13 @@ import Search from "./pages/search";
 import Profile from "./pages/profile";
 
 import Game from "./pages/game-display";
+import Admin from "./pages/admin";
 
 //PROBLEMS: Database can be edited by anyone who looks up enpoints in the code
 
 function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
-  const [currentUser, setCurrentUser] = React.useState(null);
+  const [currentUser, setCurrentUser] = React.useState("LOADING...");
 
   React.useEffect(() => {}, [loggedIn]);
 
@@ -51,9 +52,11 @@ function App() {
             loggedIn={loggedIn}
             setLoggedIn={setLoggedIn}
             currentUser={currentUser}
+            setCurrentUser={setCurrentUser}
           />
 
           <Switch>
+            <Route path="/admin" component={Admin} />
             <Route
               exact
               path="/"
