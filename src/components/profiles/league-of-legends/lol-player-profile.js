@@ -14,15 +14,15 @@ import defaultIcon from "./29.png";
 const LolPlayerProfile = props => {
   const [summonerData, setSummonerData] = React.useState({});
   const [rankedData, setRankedData] = React.useState([{}]);
-  const [icon, setIcon] = React.useState(null);
+  // const [icon, setIcon] = React.useState(null);
 
   React.useEffect(() => {
-    setIcon(summonerData.profileIconId);
+    // setIcon(summonerData.profileIconId);
     getProfile();
   }, []);
 
   React.useEffect(() => {
-    setIcon(summonerData.profileIconId);
+    // setIcon(summonerData.profileIconId);
     getRanked();
   }, [summonerData]);
 

@@ -1,9 +1,24 @@
 .tournament-container {
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr 2fr 1fr;
-  height: 825px;
-
+  .bracket-view {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 2fr 1fr;
+    height: 825px;
+    .bracket-container {
+      display: grid;
+      grid-template-rows: auto;
+      .row {
+        display: grid;
+        grid-template-columns: auto;
+      }
+    }
+  }
+  .tournaments-view {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 2fr 1fr;
+    height: 825px;
+  }
   .header {
     @include fadePinkwBorderDark;
     margin-bottom: 20px;

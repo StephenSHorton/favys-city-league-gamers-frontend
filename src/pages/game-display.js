@@ -1,6 +1,6 @@
 import React from "react";
 
-import Tournament from "../components/tournament";
+import Tournament from "../components/tournament/tournament";
 
 const GameDisplay = props => {
   const displayGame = () => {
