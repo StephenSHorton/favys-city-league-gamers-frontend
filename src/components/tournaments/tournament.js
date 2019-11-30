@@ -8,7 +8,7 @@ import Bracket from "./bracket";
 const Tournaments = props => {
   const [tournamentPressed, setTournamentPressed] = React.useState(false);
   const [match, setMatch] = React.useState(
-    `${props.currentGame}-test-match-01/01/2019`
+    `${props.currentGame} test match 01/01/2019 singleplayers(4)`
   );
 
   React.useEffect(() => {
@@ -22,7 +22,7 @@ const Tournaments = props => {
         <div className="center">
           {tournamentPressed ? (
             <div className="tournament-bracket-container">
-              <Bracket />
+              <Bracket match={match} />
               <button onClick={() => setTournamentPressed(!tournamentPressed)}>
                 Back
               </button>

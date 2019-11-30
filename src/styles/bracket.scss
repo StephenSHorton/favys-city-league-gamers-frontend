@@ -1,0 +1,9 @@
+.bracket-container {
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    .player-slot {
+      border-bottom: 3px solid rgb(179, 42, 179);
+    }
+  }
+}

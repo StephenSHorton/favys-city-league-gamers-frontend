@@ -4,6 +4,12 @@
   grid-template-columns: 1fr 2fr 1fr;
   height: 825px;
 
+  .center {
+    height: 100%;
+    display: grid;
+    align-items: center;
+  }
+
   .header {
     @include fadePinkwBorderDark;
     margin-bottom: 20px;
