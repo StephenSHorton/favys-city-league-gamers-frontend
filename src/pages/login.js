@@ -7,6 +7,7 @@ const Login = props => {
   const [name, setName] = React.useState("");
   const [pass, setPass] = React.useState("");
   const [error, setError] = React.useState(null);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const handleLogout = () => {
     props.setLoggedIn(false);
@@ -19,6 +20,7 @@ const Login = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    setIsLoading(true);
     console.log("LOGIN PRESSED");
     axios
       .post("https://favys-city-league-gamers.herokuapp.com/login", {
@@ -26,6 +28,7 @@ const Login = props => {
         password: pass
       })
       .then(response => {
+        setIsLoading(false);
         if (response.data === "SUCCESSFUL LOGIN") {
           props.setLoggedIn(true);
           Cookie.set("USERNAME", name, { expires: 3 });
@@ -39,6 +42,7 @@ const Login = props => {
       })
       .catch(error => {
         console.log("Login error: ", error);
+        setIsLoading(false);
       });
   };
 
@@ -56,21 +60,25 @@ const Login = props => {
             <div className="login-container">
               <p>Login</p>
               {error}
-              <form onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  onChange={e => setName(e.target.value)}
-                  value={name}
-                  placeholder="Username"
-                />
-                <input
-                  type="password"
-                  onChange={e => setPass(e.target.value)}
-                  value={pass}
-                  placeholder="Password"
-                />
-                <button type="submit">Login</button>
-              </form>
+              {isLoading ? (
+                <h1>Logging in...</h1>
+              ) : (
+                <form onSubmit={handleSubmit}>
+                  <input
+                    type="text"
+                    onChange={e => setName(e.target.value)}
+                    value={name}
+                    placeholder="Username"
+                  />
+                  <input
+                    type="password"
+                    onChange={e => setPass(e.target.value)}
+                    value={pass}
+                    placeholder="Password"
+                  />
+                  <button type="submit">Login</button>
+                </form>
+              )}
             </div>
           )}
         </div>

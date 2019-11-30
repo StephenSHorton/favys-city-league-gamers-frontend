@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import Bracket from "./bracket";
+
 //props = currentGame, loggedIn
 
 const Tournaments = props => {
@@ -18,14 +20,25 @@ const Tournaments = props => {
       <div className="tournament-container">
         <div className="left"></div>
         <div className="center">
-          <div className="header">
-            <h1>Tournaments:</h1>
-          </div>
-          <div className="scroll-feature">
-            <p onClick={() => setTournamentPressed(!tournamentPressed)}>
-              {match}
-            </p>
-          </div>
+          {tournamentPressed ? (
+            <div className="tournament-bracket-container">
+              <Bracket />
+              <button onClick={() => setTournamentPressed(!tournamentPressed)}>
+                Back
+              </button>
+            </div>
+          ) : (
+            <div className="tournaments-list">
+              <div className="header">
+                <h1>Tournaments:</h1>
+              </div>
+              <div className="scroll-feature">
+                <p onClick={() => setTournamentPressed(!tournamentPressed)}>
+                  {match}
+                </p>
+              </div>
+            </div>
+          )}
         </div>
         <div className="right"></div>
       </div>

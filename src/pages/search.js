@@ -8,6 +8,7 @@ const Search = () => {
   const [gameSlug, setGameSlug] = React.useState("");
   const [searchReady, setSearchReady] = React.useState(false);
   const [error, setError] = React.useState(null);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const handleChange = event => {
     setSearchReady(false);
@@ -22,6 +23,7 @@ const Search = () => {
 
   const checkUsername = name => {
     // League of legends
+    setIsLoading(true);
     axios
       .get(
         `https://9rtr3sjcm3.execute-api.us-east-2.amazonaws.com/rgapi-proxy-summoner-name/summoner/na1/${name}`
@@ -33,9 +35,11 @@ const Search = () => {
         );
         setGameSlug("lol");
         setSearchReady(true);
+        setIsLoading(false);
         return true;
       })
       .catch(error => {
+        setIsLoading(false);
         console.log("%cNOTHING FROM LEAGUE OF LEGENDS!", "color:red");
         console.log("RENDERED CONTENT> ", error);
         setSearchReady(false);
@@ -66,8 +70,9 @@ const Search = () => {
             placeholder="Search"
           />
           <button type="text">Search</button>
-          {searchReady === true ? displayLinks(searchTerm) : error}
         </form>
+        {isLoading ? <h1>Searching...</h1> : null}
+        {searchReady === true ? displayLinks(searchTerm) : error}
       </div>
       <div className="space-right"></div>
     </div>
