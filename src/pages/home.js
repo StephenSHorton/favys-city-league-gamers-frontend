@@ -49,22 +49,38 @@ const Home = () => {
         <div className="top-streamers">
           <h1>TOP STREAMERS</h1>
           <div className="link">
-            <a href="https://www.twitch.tv/imyourfavy/" target="_blank">
+            <a
+              href="https://www.twitch.tv/imyourfavy/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               @ImYourFavy
             </a>
           </div>
           <div className="link">
-            <a href="https://www.twitch.tv/Myth/" target="_blank">
+            <a
+              href="https://www.twitch.tv/Myth/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               @Myth
             </a>
           </div>
           <div className="link">
-            <a href="https://www.twitch.tv/TSM_VISS/" target="_blank">
+            <a
+              href="https://www.twitch.tv/TSM_VISS/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               @TSM_VISS
             </a>
           </div>
           <div className="link">
-            <a href="https://www.twitch.tv/PostMalone/" target="_blank">
+            <a
+              href="https://www.twitch.tv/PostMalone/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               @PostMalone
             </a>
           </div>

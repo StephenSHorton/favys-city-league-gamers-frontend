@@ -19,6 +19,7 @@ import Game from "./pages/game-display";
 import Admin from "./pages/admin";
 
 //PROBLEMS: Database can be edited by anyone who looks up enpoints in the code
+//        : Admin controls can be tampered with by editing html.. Backend will need to authenticate
 
 function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
