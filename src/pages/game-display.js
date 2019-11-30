@@ -1,6 +1,6 @@
 import React from "react";
 
-import Tournament from "../components/tournament";
+import Tournaments from "../components/tournaments/tournament";
 
 const GameDisplay = props => {
   const displayGame = () => {
@@ -8,7 +8,7 @@ const GameDisplay = props => {
     if (currentGame === "lol") {
       return (
         <div className={props.match.params.slugGame}>
-          <Tournament
+          <Tournaments
             currentGame={props.match.params.slugGame}
             loggedIn={props.loggedIn}
           />
@@ -17,7 +17,7 @@ const GameDisplay = props => {
     } else if (currentGame === "fortnite") {
       return (
         <div className={props.match.params.slugGame}>
-          <Tournament
+          <Tournaments
             currentGame={props.match.params.slugGame}
             loggedIn={props.loggedIn}
           />
@@ -26,7 +26,7 @@ const GameDisplay = props => {
     } else if (currentGame === "apex") {
       return (
         <div className={props.match.params.slugGame}>
-          <Tournament
+          <Tournaments
             currentGame={props.match.params.slugGame}
             loggedIn={props.loggedIn}
           />
@@ -35,7 +35,7 @@ const GameDisplay = props => {
     } else if (currentGame === "cod") {
       return (
         <div className={props.match.params.slugGame}>
-          <Tournament
+          <Tournaments
             currentGame={props.match.params.slugGame}
             loggedIn={props.loggedIn}
           />
@@ -44,7 +44,7 @@ const GameDisplay = props => {
     } else if (currentGame === "smash") {
       return (
         <div className={props.match.params.slugGame}>
-          <Tournament
+          <Tournaments
             currentGame={props.match.params.slugGame}
             loggedIn={props.loggedIn}
           />

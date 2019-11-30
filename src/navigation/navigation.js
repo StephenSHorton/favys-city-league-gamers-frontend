@@ -23,7 +23,8 @@ const Navigation = props => {
         <Link to="/">Favy's City League Gamers</Link>
       </div>
       <div className="navigation-links-container">
-        {props.currentUser === "TestUser" ? (
+        {props.currentUser === "TestUser" ||
+        props.currentUser === "ImYourFavy" ? (
           <div className="navigation-link-admin">
             <Link to="/admin">Admin</Link>
           </div>

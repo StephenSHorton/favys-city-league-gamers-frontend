@@ -1,7 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Tournament = props => {
+//props = currentGame, loggedIn
+
+const Tournaments = props => {
+  const [tournamentPressed, setTournamentPressed] = React.useState(false);
+  const [match, setMatch] = React.useState(
+    `${props.currentGame}-test-match-01/01/2019`
+  );
+
+  React.useEffect(() => {
+    console.log(`${match} => bracket view: ${tournamentPressed}`);
+  }, [tournamentPressed]);
+
   const renderLoggedInContent = () => {
     return (
       <div className="tournament-container">
@@ -10,7 +21,11 @@ const Tournament = props => {
           <div className="header">
             <h1>Tournaments:</h1>
           </div>
-          <div className="scroll-feature"></div>
+          <div className="scroll-feature">
+            <p onClick={() => setTournamentPressed(!tournamentPressed)}>
+              {match}
+            </p>
+          </div>
         </div>
         <div className="right"></div>
       </div>
@@ -51,4 +66,4 @@ const Tournament = props => {
   );
 };
 
-export default Tournament;
+export default Tournaments;
